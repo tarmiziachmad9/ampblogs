@@ -19,20 +19,120 @@ body {
   padding:0;
   color:#212121;
 }
+a {
+  color:#212121;
+  text-decoration:none;
+}
+a:hover {color:#0379C4}
+
+/* ==== Related Post Widget Start ==== */
+
+.related-post {
+  margin:2em auto 0;
+  font-family: Roboto, sans-serif;
+  font-size:16px;
+}
+.related-post h4 {
+  font-size:20px;
+  margin:0 5px 10px;
+  font-weight:500;
+}
+
+/* Style 2 */
+.related-post-style-2 {
+  margin:0;
+  padding:0;
+  list-style:none;
+  max-height:292px;
+}
+.related-post-style-2 li {
+  background-color: #f5f5f5;
+   display: block;
+   color: #111;
+   height: 75px;
+   padding:8px 0 0;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+    float: none;
+    overflow: hidden;
+    margin: 0 5px 16px;
+    border-radius: 2px;
+	list-style:none;
+}
+.related-post-style-2 li:hover {
+    background-color: #ccc;
+}
+.related-post-style-2 .related-post-item-thumbnail {
+  width:110px;
+  height:83px;
+  max-width:none;
+  max-height:none;
+  background-color:transparent;
+  border:none;
+  padding:0;
+  float:left;
+  margin:-8px 10px 0 0;
+}
+.related-post-style-2 .related-post-item-title {
+  font-weight:500;
+  font-size:17px;
+}
+.related-post-style-2 .related-post-item-summary {
+  overflow:hidden;
+  margin-top:5px;
+  color:#333;
+  font-size:16px;
+    text-overflow: ellipsis;
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.related-post-style-2 .related-post-item-more {
+  display:none;
+}
+@media screen and (max-width:320px){.related-post-style-2 .related-post-item-summary {display:none;}
+}
 /* ==== Related Post Widget End ==== */
 </style>
 </head>
 <body>
-<script type='text/javascript'>
-//<![CDATA[
-function relatedPostsWidget(a){(function(e){var f={blogURL:"",maxPosts:5,maxTags:5,maxPostsPerTag:5,containerSelector:"",tags:null,loadingText:"",loadingClass:"",relevantTip:"",rlt_summary:150,relatedTitle:"Related Posts",readMoretext:"Read More",rlpBlank:"http://3.bp.blogspot.com/-ciCUurobkhg/UoCtFhXRBuI/AAAAAAAAFIs/9FbIqQZ3KfU/s1600/BS+No+Image+White.png",rlt_thumb:70,recentTitle:"Recent Posts",postScoreClass:"",onLoad:false};f=e.extend({},f,a);var k=0,b=null,g=null;if(!f.containerSelector){document.write('<div id="BloggerSpiceRP"></div>');f.containerSelector="#BloggerSpiceRP"}var c=function(t,n){k++;if(t.feed.entry){for(var o=0;o<t.feed.entry.length;o++){var r=t.feed.entry[o];var p="";for(var m=0;m<r.link.length;m++){if(r.link[m].rel=="alternate"){p=r.link[m].href;break}}if("content" in r){var l=r.content.$t}else{if("summary" in r){var l=r.summary.$t}else{var l=""}}var l=l.replace(/<\S[^>]*>/g,"");if(l.length>f.rlt_summary){var l=l.substring(0,f.rlt_summary)+"..."}var q=r.title.$t;if("media$thumbnail" in r){var s=r.media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+f.rlt_thumb+"-c")}else{var s=f.rlpBlank}if(location.href.toLowerCase()!=p.toLowerCase()){i(p,q,s,l)}}}if(k>=f.tags.length){g.attr("class","");e("#BloggerSpiceRP-loadingtext",b).remove();if(f.maxPosts>0){e("li:gt("+(f.maxPosts-1)+")",g).remove()}}};var i=function(p,s,u,l){var q=e("li",g);for(var o=0;o<q.length;o++){var t=e("a",q.eq(o));var r=j(t);if(t.attr("href")==p){h(t,++r);for(var n=o-1;n>=0;n--){var m=e("a",q.eq(n));if(j(m)>r){if(o-n>1){q.eq(n).after(q.eq(o))}return}}if(o>0){q.eq(0).before(q.eq(o))}return}}g.append('<li><a class="jdlunya" href="'+p+'" title="'+(f.relevantTip?f.relevantTip.replace("\d",1):"")+'"><span class="gmbrrltd"><img style="width:'+f.rlt_thumb+"px;height:"+f.rlt_thumb+'px;display: block" alt="'+s+'" src="'+u+'"/></span><strong>'+s+"</strong></a><p>"+l+'<a target="_blank" title="'+s+'" href="'+p+'">'+f.readMoretext+"</a></p></li>")};var j=function(l){var m=parseInt(l.attr("score"));return m>0?m:1};var h=function(l,m){l.attr("score",m);if(f.relevantTip){l.attr("title",f.relevantTip.replace("\d",m))}if(f.postScoreClass){l.attr("class",f.postScoreClass+m)}};var d=function(){if(f.containerSelector!="#BloggerSpiceRP"){var l=e(f.containerSelector);if(l.length!=1){return}b=e('<div id="BloggerSpiceRP"></div>').appendTo(l)}else{b=e(f.containerSelector)}if(!f.tags){f.tags=[];e('a[rel="tag"]:lt('+f.maxTags+")").each(function(){var n=e.trim(e(this).text().replace(/\n/g,""));if(e.inArray(n,f.tags)==-1){f.tags[f.tags.length]=n}})}if(f.tags.length==0&&!f.recentTitle){return}if(f.tags.length==0){e("<h4>"+f.recentTitle+"</h4>").appendTo(b)}else{if(f.relatedTitle){e("<h4>"+f.relatedTitle+"</h4>").appendTo(b)}}if(f.loadingText){e('<div id="BloggerSpiceRP-loadingtext">'+f.loadingText+"</div>").appendTo(b)}g=e("<ul "+(f.loadingClass?'class="'+f.loadingClass+'"':"")+"></ul>").appendTo(b);if(f.tags.length==0){e.get((f.blogURL===""?window.location.protocol+"//"+window.location.host:f.blogURL)+"/feeds/posts/summary?max-results="+f.maxPostsPerTag+"&orderby=published&alt=json-in-script",c,"jsonp")}else{for(var m=0;m<f.tags.length;m++){e.get((f.blogURL===""?window.location.protocol+"//"+window.location.host:f.blogURL)+"/feeds/posts/summary/-/"+f.tags[m]+"?max-results="+f.maxPostsPerTag+"&orderby=published&alt=json-in-script",c,"jsonp")}}};if(f.onLoad){e(window).load(d)}else{e(document).ready(d)}})(jQuery)};
-relatedPostsWidget({
-related_title: "Related Posts",
-containerSelector: "#BloggerSpiceRP",
-maxPosts: 4,loadingClass: "loadingxx",
-rlt_thumb: 70
-});
-//]]>
+
+<div id="related-post" class="related-post"></div>
+<script>
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+    if(pair[0] == variable){return pair[1];}
+  }
+  return(false);
+}
+var labelArray = [],
+    relatedPostConfig = {
+		homePage: getQueryVariable("url"),
+        numPosts: 20,
+        summaryLength: 100,
+        widgetStyle: 2,
+        callBack: function() {
+            var $container = $('#' + this.containerId + ' > ul'),
+                $list = $container.find('li'),
+                innerHeight = $list.first().height(),
+                outerHeight = $list.first().outerHeight(true);
+            // Container & list height setup
+            $container.css({
+                "height": outerHeight * $list.length / 2,
+                "overflow": "hidden"
+            });
+            $list.css({
+                "height": innerHeight,
+                "overflow": "hidden"
+            });
 </script>
+<script>
+/*! Related Post Widget for Blogger by Taufik Nurrohman => http://gplus.to/tovic */
+var randomRelatedIndex,showRelatedPost;(function(n,m,k){var d={widgetTitle:"<h4>Baca juga artikel lainnya:</h4>",widgetStyle:1,homePage:"http://www.kompiajaib.com/",numPosts:7,summaryLength:370,titleLength:"auto",thumbnailSize:200,noImage:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U/gAAAADElEQVQImWOor68HAAL+AX7vOF2TAAAAAElFTkSuQmCC",containerId:"related-post",newTabLink:false,moreText:"Baca Selengkapnya",callBack:function(){}};for(var f in relatedPostConfig){d[f]=(relatedPostConfig[f]=="undefined")?d[f]:relatedPostConfig[f]}var j=function(a){var b=m.createElement("script");b.type="text/javascript";b.src=a;k.appendChild(b)},o=function(b,a){return Math.floor(Math.random()*(a-b+1))+b},l=function(a){var p=a.length,c,b;if(p===0){return false}while(--p){c=Math.floor(Math.random()*(p+1));b=a[p];a[p]=a[c];a[c]=b}return a},e=(typeof labelArray=="object"&&labelArray.length>0)?"/-/"+l(labelArray)[0]:"",h=function(b){var c=b.feed.openSearch$totalResults.$t-d.numPosts,a=o(1,(c>0?c:1));j(d.homePage.replace(/\/$/,"")+"/feeds/posts/summary"+e+"?alt=json-in-script&orderby=updated&start-index="+a+"&max-results="+d.numPosts+"&callback=showRelatedPost")},g=function(z){var s=document.getElementById(d.containerId),x=l(z.feed.entry),A=d.widgetStyle,c=d.widgetTitle+'<ul class="related-post-style-'+A+'">',b=d.newTabLink?' target="_blank"':"",y='<span style="display:block;clear:both;"></span>',v,t,w,r,u;if(!s){return}for(var q=0;q<d.numPosts;q++){if(q==x.length){break}t=x[q].title.$t;w=(d.titleLength!=="auto"&&d.titleLength<t.length)?t.substring(0,d.titleLength)+"&hellip;":t;r=("media$thumbnail"in x[q]&&d.thumbnailSize!==false)?x[q].media$thumbnail.url.replace(/\/s[0-9]+(\-c)?/, "/s"+d.thumbnailSize):d.noImage;u=("summary"in x[q]&&d.summaryLength>0)?x[q].summary.$t.replace(/<br ?\/?>/g," ").replace(/<.*?>/g,"").replace(/[<>]/g,"").substring(0,d.summaryLength)+"&hellip;":"";for(var p=0,a=x[q].link.length;p<a;p++){v=(x[q].link[p].rel=="alternate")?x[q].link[p].href:"#"}if(A==2){c+='<li><a href="'+v+'" title="'+t+'"'+b+' target="_blank"><img alt="" class="related-post-item-thumbnail" src="'+r+'" width="'+d.thumbnailSize+'" height="'+d.thumbnailSize+'"></a><a class="related-post-item-title" title="'+t+'" href="'+v+'"'+b+" target='_blank'>"+w+'</a><span class="related-post-item-summary"><span class="related-post-item-summary-text">'+u+'</span> <a href="'+v+'" class="related-post-item-more"'+b+">"+d.moreText+"</a></span>"+y+"</li>"}else{if(A==3||A==4){c+='<li class="related-post-item" tabindex="0"><a class="related-post-item-title" href="'+v+'"'+b+' target="_blank"><img alt="" class="related-post-item-thumbnail" src="'+r+'" width="'+d.thumbnailSize+'" height="'+d.thumbnailSize+'"></a><div class="related-post-item-tooltip"><a class="related-post-item-title" title="'+t+'" href="'+v+'"'+b+" target='_blank'>"+w+"</a></div>"+y+"</li>"}else{if(A==5){c+='<li class="related-post-item" tabindex="0"><a class="related-post-item-wrapper" href="'+v+'" title="'+t+'"'+b+' target="_blank"><img alt="" class="related-post-item-thumbnail" src="'+r+'" width="'+d.thumbnailSize+'" height="'+d.thumbnailSize+'"><span class="related-post-item-tooltip">'+w+"</span></a>"+y+"</li>"}else{if(A==6){c+='<li><a class="related-post-item-title" title="'+t+'" href="'+v+'"'+b+" target='_blank'>"+w+'</a><div class="related-post-item-tooltip"><img alt="" class="related-post-item-thumbnail" src="'+r+'" width="'+d.thumbnailSize+'" height="'+d.thumbnailSize+'"><span class="related-post-item-summary"><span class="related-post-item-summary-text">'+u+"</span></span>"+y+"</div></li>"}else{c+='<li><a title="'+t+'" href="'+v+'"'+b+" target='_blank'>"+w+"</a></li>"}}}}}s.innerHTML=c+="</ul>"+y;d.callBack()};randomRelatedIndex=h;showRelatedPost=g;j(d.homePage.replace(/\/$/,"")+"/feeds/posts/summary"+e+"?alt=json-in-script&orderby=updated&max-results=0&callback=randomRelatedIndex")})(window,document,document.getElementsByTagName("head")[0]);
+</script>
+
 </body>
 </html>
