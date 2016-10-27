@@ -186,6 +186,10 @@ var labelArray = [],
         widgetStyle: 2,
 }
 
+jQuery('body')addClass('.sandbox').on('click', function(e) {
+  $(e.currentTarget).toggleClass('shrinked');
+});
+
 (function($) {
   'use strict';
 
