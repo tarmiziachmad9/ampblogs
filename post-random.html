@@ -127,6 +127,11 @@ h3.post-title{
 	margin-top: 3px;
 }
 
+h3.post-title:hover{
+	color: #e8554e;
+	transition: 0.3s;
+}
+
 .related-post-item-thumbnail{
 	width: 100%;
 	height: auto;
@@ -139,15 +144,11 @@ h3.post-title{
 		padding:0;
 }
 }
-@media screen and (max-width: 992px){
-	.feeds{
-		padding-right: 10px;
-}
-}
 
 @media screen and (max-width: 768px){
      .feeds{
-		padding-right:5px;
+		padding-right:40px;
+		min-width: 50%%;
 }
 }
 
@@ -176,7 +177,7 @@ function getQueryVariable(variable) {
 var labelArray = [],
     relatedPostConfig = {
 		homePage: getQueryVariable("url"),
-        numPosts: 6,
+        numPosts: 3,
         summaryLength: 100,
         widgetStyle: 2,
 }
