@@ -1,0 +1,55 @@
+<style>
+@font-face{font-family:'Poppins';font-style:normal;font-weight:300;src:local('Poppins Light'), local('Poppins-Light'), url(https://fonts.gstatic.com/s/poppins/v1/MEXWGbc1EWORtBwy9fFeUr3hpw3pgy2gAi-Ip7WPMi0.woff) format('woff')}@font-face{font-family:'Poppins';font-style:normal;font-weight:400;src:local('Poppins'), local('Poppins-Regular'), url(https://fonts.gstatic.com/s/poppins/v1/0hyMx537ApGjkDVOSI6XEgLUuEpTyoUstqEm5AMlJo4.woff) format('woff')}@font-face{font-family:'Poppins';font-style:normal;font-weight:500;src:local('Poppins Medium'), local('Poppins-Medium'), url(https://fonts.gstatic.com/s/poppins/v1/UGh2YG8gx86rRGiAZYIbV73hpw3pgy2gAi-Ip7WPMi0.woff) format('woff')}@font-face{font-family:'Poppins';font-style:normal;font-weight:600;src:local('Poppins SemiBold'), local('Poppins-SemiBold'), url(https://fonts.gstatic.com/s/poppins/v1/9VWMTeb5jtXkNoTv949Npb3hpw3pgy2gAi-Ip7WPMi0.woff) format('woff')}@font-face{font-family:'Poppins';font-style:normal;font-weight:700;src:local('Poppins Bold'), local('Poppins-Bold'), url(https://fonts.gstatic.com/s/poppins/v1/aDjpMND83pDErGXlVEr-Sb3hpw3pgy2gAi-Ip7WPMi0.woff) format('woff')}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v15/Pru33qjShpZSmG3z6VYwnbO3LdcAZYWl9Si6vvxL-qU.woff) format('woff')}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/Xu_FYwbs8k0teWf0uC8JpevvDin1pK8aKteLpeZ5c0A.woff) format('woff')}@font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v15/97uahxiqZRoncBaCEI3aW7O3LdcAZYWl9Si6vvxL-qU.woff) format('woff')}
+body, #disqus_thread *{
+  line-height: 1.5 !important;
+  font-family: "Roboto","Arial",sans-serif !important;
+  font-weight: 400 !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+#disqus_thread a{
+  color: #e8554e;
+}
+</style>
+<div id="disqus_thread"></div>
+<script>
+window.addEventListener('message', receiveMessage, false);
+function receiveMessage(event) {
+	if (event.data) {
+		var msg;
+		try {
+			msg = JSON.parse(event.data);
+		} catch (err) {
+			// Do nothing
+		}
+		if (!msg)
+			return false;
+		if (msg.name === 'resize') {
+			window.parent.postMessage({
+			  sentinel: 'amp',
+			  type: 'embed-size',
+			  height: msg.data.height
+			}, '*');
+		}
+	}
+}
+</script>
+<script>
+function getQueryVariable(variable) {
+	var query = window.location.search.substring(1);
+	var vars = query.split("&");
+	for (var i=0;i<vars.length;i++) {
+		var pair = vars[i].split("=");
+		if(pair[0] == variable){return pair[1];}
+	}
+	return(false);
+}
+var disqus_config = function () { 
+	this.page.url = getQueryVariable("url");
+};
+(function() {
+	var d = document, s = d.createElement('script');
+	s.src = '//' + getQueryVariable("shortname") + '.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+})();
+</script>
