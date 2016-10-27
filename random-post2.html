@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -187,7 +186,7 @@ var labelArray = [],
         widgetStyle: 2,
 }
 
-jQuery('body')addClass('.sandbox').on('click', function(e) {
+jQuery('body').on('click', '*', function(e) {
   $(e.currentTarget).toggleClass('shrinked');
 });
 
