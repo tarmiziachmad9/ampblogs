@@ -144,11 +144,15 @@ h3.post-title:hover{
 		padding:0;
 }
 }
+@media screen and (max-width: 992px){
+	.feeds{
+		padding-right: 20px;
+}
+}
 
 @media screen and (max-width: 768px){
      .feeds{
-		padding-right:40px;
-		min-width: 50%%;
+		min-width: 50%;
 }
 }
 
@@ -177,7 +181,7 @@ function getQueryVariable(variable) {
 var labelArray = [],
     relatedPostConfig = {
 		homePage: getQueryVariable("url"),
-        numPosts: 3,
+        numPosts: 6,
         summaryLength: 100,
         widgetStyle: 2,
 }
