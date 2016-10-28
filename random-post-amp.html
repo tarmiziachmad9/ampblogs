@@ -165,8 +165,7 @@ h3.post-title:hover{
 </style>
 </head>
 <body>
-<div id="related-post"></div>
-
+<div id="related-post" class="related-post"></div>
 <script>
 function getQueryVariable(variable) {
   var query = window.location.search.substring(1);
@@ -187,7 +186,7 @@ var labelArray = [],
 }
 
 jQuery('body').on('click', '*', function(e) {
-  $(e.currentTarget).toggleClass('shrinked');
+  $(e.currentTarget).toggleClass('related-post');
 });
 
 (function($) {
