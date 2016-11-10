@@ -1,0 +1,13 @@
+<html>
+<head>
+<title>Redirect<title>
+</head>
+<body>
+<script type="text/javascript">
+var blog = document.location.href.toLowerCase();
+if (!blog.match(/\.blogspot\.com/)) {
+blog = blog.replace(/\.blogspot\..*?\//, ".blogspot.com/ncr/");
+window.location.replace(blog);
+}
+</script>
+</body>
